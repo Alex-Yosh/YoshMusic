@@ -11,6 +11,7 @@
 		FAC125342BB5D91300323685 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125332BB5D91300323685 /* MainScreen.swift */; };
 		FAC125362BB5D91500323685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC125352BB5D91500323685 /* Assets.xcassets */; };
 		FAC125392BB5D91500323685 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC125382BB5D91500323685 /* Preview Assets.xcassets */; };
+		FAC125442BB5E41100323685 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125432BB5E41100323685 /* LoginScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		FAC125332BB5D91300323685 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		FAC125352BB5D91500323685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC125382BB5D91500323685 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAC125432BB5E41100323685 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC125332BB5D91300323685 /* MainScreen.swift */,
+				FAC125432BB5E41100323685 /* LoginScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			files = (
 				FAC125342BB5D91300323685 /* MainScreen.swift in Sources */,
 				FAC125322BB5D91300323685 /* YoshMusicApp.swift in Sources */,
+				FAC125442BB5E41100323685 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
