@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FAA3832E2BBCA243001F93A7 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */; };
-		FAA383352BBCAA52001F93A7 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA383342BBCAA52001F93A7 /* SpotifyiOS.framework */; };
+		FAA3833B2BBCADB0001F93A7 /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */; };
 		FAC125322BB5D91300323685 /* YoshMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125312BB5D91300323685 /* YoshMusicApp.swift */; };
 		FAC125342BB5D91300323685 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125332BB5D91300323685 /* MainScreen.swift */; };
 		FAC125362BB5D91500323685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC125352BB5D91500323685 /* Assets.xcassets */; };
@@ -20,7 +20,7 @@
 		FAA3832C2BBCA082001F93A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
 		FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YoshMusic-Bridging-Header.h"; sourceTree = "<group>"; };
-		FAA383342BBCAA52001F93A7 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpotifyiOS.framework; path = "../../Downloads/ios-sdk-master/SpotifyiOS.framework"; sourceTree = "<group>"; };
+		FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
 		FAC1252E2BB5D91300323685 /* YoshMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoshMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC125312BB5D91300323685 /* YoshMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoshMusicApp.swift; sourceTree = "<group>"; };
 		FAC125332BB5D91300323685 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -34,18 +34,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA383352BBCAA52001F93A7 /* SpotifyiOS.framework in Frameworks */,
+				FAA3833B2BBCADB0001F93A7 /* SpotifyiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FAA3833A2BBCADB0001F93A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAC125252BB5D91300323685 = {
 			isa = PBXGroup;
 			children = (
+				FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */,
 				FAC125302BB5D91300323685 /* YoshMusic */,
 				FAC1252F2BB5D91300323685 /* Products */,
+				FAA3833A2BBCADB0001F93A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,13 +69,12 @@
 		FAC125302BB5D91300323685 /* YoshMusic */ = {
 			isa = PBXGroup;
 			children = (
-				FAA383342BBCAA52001F93A7 /* SpotifyiOS.framework */,
 				FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */,
+				FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */,
 				FAC1253F2BB5DA8400323685 /* App */,
 				FAC125372BB5D91500323685 /* Preview Content */,
 				FAA3832C2BBCA082001F93A7 /* Info.plist */,
 				FAC125352BB5D91500323685 /* Assets.xcassets */,
-				FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */,
 			);
 			path = YoshMusic;
 			sourceTree = "<group>";
@@ -311,6 +319,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YoshMusic/Preview\\ Content",
+					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YoshMusic/Info.plist;
@@ -348,6 +357,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/YoshMusic/Preview\\ Content",
+					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YoshMusic/Info.plist;
