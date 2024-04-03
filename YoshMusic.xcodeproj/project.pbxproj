@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FA73B0362BBCB305008E692A /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */; };
+		FA73B03A2BBCF29A008E692A /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B0392BBCF29A008E692A /* ConnectButton.swift */; };
+		FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B03B2BBCF512008E692A /* SpotifyManager.swift */; };
+		FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B03D2BBD0DDE008E692A /* LandingView.swift */; };
 		FAA3832E2BBCA243001F93A7 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */; };
 		FAC125322BB5D91300323685 /* YoshMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125312BB5D91300323685 /* YoshMusicApp.swift */; };
 		FAC125342BB5D91300323685 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125332BB5D91300323685 /* MainScreen.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA73B0392BBCF29A008E692A /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
+		FA73B03B2BBCF512008E692A /* SpotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
+		FA73B03D2BBD0DDE008E692A /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		FAA3832C2BBCA082001F93A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
 		FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YoshMusic-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -49,6 +55,30 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		FA73B03F2BBD0EC3008E692A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FA73B03B2BBCF512008E692A /* SpotifyManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		FA73B0402BBD0EE2008E692A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAC125402BB5DCC100323685 /* Screens */,
+				FA73B0412BBD0EF5008E692A /* Sub Views */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FA73B0412BBD0EF5008E692A /* Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Sub Views";
+			sourceTree = "<group>";
+		};
 		FAA3833A2BBCADB0001F93A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				FAC1253F2BB5DA8400323685 /* App */,
+				FA73B03F2BBD0EC3008E692A /* Managers */,
+				FA73B0402BBD0EE2008E692A /* Views */,
 				FAC125372BB5D91500323685 /* Preview Content */,
 				FA73B0382BBCB3E0008E692A /* Constants */,
 				FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */,
@@ -90,7 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				FAC125312BB5D91300323685 /* YoshMusicApp.swift */,
-				FAC125402BB5DCC100323685 /* Screens */,
+				FA73B0392BBCF29A008E692A /* ConnectButton.swift */,
+				FA73B03D2BBD0DDE008E692A /* LandingView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -176,9 +209,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA3832E2BBCA243001F93A7 /* SpotifyConstants.swift in Sources */,
+				FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */,
+				FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */,
 				FAC125342BB5D91300323685 /* MainScreen.swift in Sources */,
 				FAC125322BB5D91300323685 /* YoshMusicApp.swift in Sources */,
 				FAC125442BB5E41100323685 /* LoginScreen.swift in Sources */,
+				FA73B03A2BBCF29A008E692A /* ConnectButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

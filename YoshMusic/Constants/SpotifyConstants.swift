@@ -7,10 +7,10 @@
 
 import Foundation
 
-let accessTokenKey = "access-token-key"
-let redirectUri = URL(string:"YoshMusic://")!
-let spotifyClientId = "a6750123c911486a823017f47402e1ad"
-let spotifyClientSecretKey = "12b3ba5c9fe94c1ab2abbad676782d5b"
+let SpotifyAccessTokenKey = "access-token-key"
+let SpotifyRedirectURI = URL(string:"YoshMusic://")!
+let SpotifyClientId = "a6750123c911486a823017f47402e1ad"
+let SpotifyClientSecretKey = "12b3ba5c9fe94c1ab2abbad676782d5b"
 
 /*
 Scopes let you specify exactly what types of data your application wants to
@@ -21,7 +21,7 @@ For more information, see https://developer.spotify.com/web-api/using-scopes/.
 
 // Dash board at https://developer.spotify.com/dashboard
 
-let scopes: SPTScope = [
+let SpotifyScopes: SPTScope = [
                             .userReadEmail, .userReadPrivate,
                             .userReadPlaybackState, .userModifyPlaybackState, .userReadCurrentlyPlaying,
                             .streaming, .appRemoteControl,
@@ -30,7 +30,7 @@ let scopes: SPTScope = [
                             .userTopRead, .userReadPlaybackState, .userReadCurrentlyPlaying,
                             .userFollowRead, .userFollowModify,
                         ]
-let stringScopes = [
+let SpotifyStringScopes = [
                         "user-read-email", "user-read-private",
                         "user-read-playback-state", "user-modify-playback-state", "user-read-currently-playing",
                         "streaming", "app-remote-control",
