@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct LoginScreen: View {
+struct LoadingScreen: View {
     var body: some View {
-        ConnectButton()
+        EmptyView()
     }
 }
 
 #Preview {
-    LoginScreen()
+    LoadingScreen()
 }

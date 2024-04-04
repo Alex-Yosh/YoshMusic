@@ -7,8 +7,9 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
-final class SpotifyManager: NSObject, ObservableObject, SPTSessionManagerDelegate, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate{
+final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SPTAppRemotePlayerStateDelegate{
     static let shared = SpotifyManager() //singleton
     
     
@@ -17,12 +18,20 @@ final class SpotifyManager: NSObject, ObservableObject, SPTSessionManagerDelegat
     var currIsPaused: Bool?
     
     @Published var isSignedIn: Bool
+    var playURI = ""
     
-    private override init()
-    {
-        _isSignedIn = Published(initialValue: false)
-        super.init()
+    @AppStorage(SpotifyAccessTokenKey) private var accessToken: String? {
+        didSet{
+            isSignedIn = accessToken != nil
+            UserDefaults.standard.set(accessToken, forKey: SpotifyAccessTokenKey)
+        }
     }
+    
+    
+    private var connectCancellable: AnyCancellable?
+    
+    private var disconnectCancellable: AnyCancellable?
+    
     
     lazy var configuration: SPTConfiguration = {
         let configuration = SPTConfiguration(clientID: SpotifyClientId, redirectURL: SpotifyRedirectURI)
@@ -38,21 +47,51 @@ final class SpotifyManager: NSObject, ObservableObject, SPTSessionManagerDelegat
     }()
     
     
-    lazy var sessionManager: SPTSessionManager? = {
-        let manager = SPTSessionManager(configuration: configuration, delegate: self)
-        return manager
-    }()
     
     lazy var appRemote: SPTAppRemote = {
         let appRemote = SPTAppRemote(configuration: configuration, logLevel: .debug)
+        appRemote.connectionParameters.accessToken = self.accessToken
         appRemote.delegate = self
         return appRemote
     }()
     
     private var lastPlayerState: SPTAppRemotePlayerState?
     
-    public func main() {
-        isSignedIn = true
+    override init() {
+        //for testing
+//        UserDefaults.standard.removeObject(forKey: SpotifyAccessTokenKey)
+        
+        let accessToken = UserDefaults.standard.string(forKey: SpotifyAccessTokenKey)
+        print(accessToken != nil)
+        _isSignedIn = Published(initialValue: accessToken != nil)
+        super.init()
+        connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                    self.connect()
+            }
+        
+        disconnectCancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                self.disconnect()
+            }
+        
+    }
+    
+    func connect() {
+        guard let _ = self.appRemote.connectionParameters.accessToken else {
+            self.appRemote.authorizeAndPlayURI("")
+            return
+        }
+        
+        appRemote.connect()
+    }
+    
+    func disconnect() {
+        if appRemote.isConnected {
+            appRemote.disconnect()
+        }
     }
     
     func fetchPlayerState() {
@@ -85,29 +124,29 @@ final class SpotifyManager: NSObject, ObservableObject, SPTSessionManagerDelegat
         currIsPaused = playerState.isPaused
     }
     
-    // MARK: - SPTSessionManagerDelegate
     
-    func sessionManager(manager: SPTSessionManager, didFailWith error: Error) {
-    }
-    
-    func sessionManager(manager: SPTSessionManager, didRenew session: SPTSession) {
-    }
-    
-    func sessionManager(manager: SPTSessionManager, didInitiate session: SPTSession) {
-        appRemote.connectionParameters.accessToken = session.accessToken
-        appRemote.connect()
+    func storeAccessToken(from url: URL){
+        let parameters = appRemote.authorizationParameters(from: url)
+        
+        if let accessToken = parameters?[SPTAppRemoteAccessTokenKey] {
+            appRemote.connectionParameters.accessToken = accessToken
+            self.accessToken = accessToken
+        } else if let errorDescription = parameters?[SPTAppRemoteErrorDescriptionKey] {
+            print(errorDescription)
+        }
     }
     
     // MARK: - SPTAppRemoteDelegate
     
     func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
-        appRemote.playerAPI?.delegate = self
-        appRemote.playerAPI?.subscribe(toPlayerState: { (success, error) in
+        self.appRemote = appRemote
+        self.appRemote.playerAPI?.delegate = self
+        self.appRemote.playerAPI?.subscribe(toPlayerState: { (result, error) in
             if let error = error {
-                print("Error subscribing to player state:" + error.localizedDescription)
+                debugPrint(error.localizedDescription)
             }
+            
         })
-        fetchPlayerState()
     }
     
     func appRemote(_ appRemote: SPTAppRemote, didDisconnectWithError error: Error?) {
@@ -123,8 +162,5 @@ final class SpotifyManager: NSObject, ObservableObject, SPTSessionManagerDelegat
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
         update(playerState: playerState)
     }
-    
-    private static var clientID : String = ""
-    private static var clientSecret: String = ""
     
 }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FA73B0362BBCB305008E692A /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */; };
-		FA73B03A2BBCF29A008E692A /* ConnectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B0392BBCF29A008E692A /* ConnectButton.swift */; };
 		FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B03B2BBCF512008E692A /* SpotifyManager.swift */; };
 		FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B03D2BBD0DDE008E692A /* LandingView.swift */; };
 		FAA3832E2BBCA243001F93A7 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */; };
@@ -16,11 +15,10 @@
 		FAC125342BB5D91300323685 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125332BB5D91300323685 /* MainScreen.swift */; };
 		FAC125362BB5D91500323685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC125352BB5D91500323685 /* Assets.xcassets */; };
 		FAC125392BB5D91500323685 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC125382BB5D91500323685 /* Preview Assets.xcassets */; };
-		FAC125442BB5E41100323685 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125432BB5E41100323685 /* LoginScreen.swift */; };
+		FAC125442BB5E41100323685 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125432BB5E41100323685 /* LoadingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FA73B0392BBCF29A008E692A /* ConnectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectButton.swift; sourceTree = "<group>"; };
 		FA73B03B2BBCF512008E692A /* SpotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
 		FA73B03D2BBD0DDE008E692A /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		FAA3832C2BBCA082001F93A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,7 +30,7 @@
 		FAC125332BB5D91300323685 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		FAC125352BB5D91500323685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC125382BB5D91500323685 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FAC125432BB5E41100323685 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		FAC125432BB5E41100323685 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				FAC125312BB5D91300323685 /* YoshMusicApp.swift */,
-				FA73B0392BBCF29A008E692A /* ConnectButton.swift */,
 				FA73B03D2BBD0DDE008E692A /* LandingView.swift */,
 			);
 			path = App;
@@ -132,7 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC125332BB5D91300323685 /* MainScreen.swift */,
-				FAC125432BB5E41100323685 /* LoginScreen.swift */,
+				FAC125432BB5E41100323685 /* LoadingScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -213,8 +210,7 @@
 				FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */,
 				FAC125342BB5D91300323685 /* MainScreen.swift in Sources */,
 				FAC125322BB5D91300323685 /* YoshMusicApp.swift in Sources */,
-				FAC125442BB5E41100323685 /* LoginScreen.swift in Sources */,
-				FA73B03A2BBCF29A008E692A /* ConnectButton.swift in Sources */,
+				FAC125442BB5E41100323685 /* LoadingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
