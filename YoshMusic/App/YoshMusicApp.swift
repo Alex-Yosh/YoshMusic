@@ -11,7 +11,7 @@ import SwiftUI
 struct YoshMusicApp: App {
     var body: some Scene {
         WindowGroup {
-            MainScreen()
+            LandingView()
         }
     }
 }
