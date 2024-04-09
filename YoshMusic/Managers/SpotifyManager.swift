@@ -62,7 +62,6 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
 //        UserDefaults.standard.removeObject(forKey: SpotifyAccessTokenKey)
         
         let accessToken = UserDefaults.standard.string(forKey: SpotifyAccessTokenKey)
-        print(accessToken != nil)
         _isSignedIn = Published(initialValue: accessToken != nil)
         super.init()
         connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
@@ -161,6 +160,36 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     
     func playerStateDidChange(_ playerState: SPTAppRemotePlayerState) {
         update(playerState: playerState)
+    }
+    
+    // MARK: WEB API
+    
+//    pass Query
+    func createURLRequest() -> URLRequest? {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = SpotifyApiHost
+        //search would be query variable
+        components.path = "/v1/search"
+        components.queryItems = [
+            URLQueryItem(name: "type", value: "track"),
+            URLQueryItem(name: "query", value: "the kid laroi")
+        ]
+        
+        guard let url = components.url else {return nil}
+        
+        var urlRequest = URLRequest(url: url)
+        
+        if accessToken == nil{
+            return nil
+        }else{
+            urlRequest.addValue("Bearer " + accessToken!, forHTTPHeaderField: "Authorization")
+            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
+        
+        urlRequest.httpMethod = "GET"
+        
+        return urlRequest
     }
     
 }

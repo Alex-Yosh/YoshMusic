@@ -12,6 +12,7 @@ let SpotifyRedirectURI = URL(string:"YoshMusic://")!
 let SpotifyClientId = "a6750123c911486a823017f47402e1ad"
 let SpotifyClientSecretKey = "12b3ba5c9fe94c1ab2abbad676782d5b"
 
+let SpotifyApiHost = "api.spotify.com"
 /*
 Scopes let you specify exactly what types of data your application wants to
 access, and the set of scopes you pass in your call determines what access
