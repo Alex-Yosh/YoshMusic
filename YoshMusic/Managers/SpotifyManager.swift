@@ -20,10 +20,10 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     @Published var isSignedIn: Bool
     var playURI = ""
     
-    @AppStorage(SpotifyAccessTokenKey) private var accessToken: String? {
+    @AppStorage(Constants.Spotify.SpotifyAccessTokenKey) private var accessToken: String? {
         didSet{
             isSignedIn = accessToken != nil
-            UserDefaults.standard.set(accessToken, forKey: SpotifyAccessTokenKey)
+            UserDefaults.standard.set(accessToken, forKey: Constants.Spotify.SpotifyAccessTokenKey)
         }
     }
     
@@ -34,7 +34,7 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     
     
     lazy var configuration: SPTConfiguration = {
-        let configuration = SPTConfiguration(clientID: SpotifyClientId, redirectURL: SpotifyRedirectURI)
+        let configuration = SPTConfiguration(clientID: Constants.Spotify.SpotifyClientId, redirectURL: Constants.Spotify.SpotifyRedirectURI)
         // Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
         // otherwise another app switch will be required
         configuration.playURI = ""
@@ -61,7 +61,7 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
         //for testing
 //        UserDefaults.standard.removeObject(forKey: SpotifyAccessTokenKey)
         
-        let accessToken = UserDefaults.standard.string(forKey: SpotifyAccessTokenKey)
+        let accessToken = UserDefaults.standard.string(forKey: Constants.Spotify.SpotifyAccessTokenKey)
         _isSignedIn = Published(initialValue: accessToken != nil)
         super.init()
         connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
@@ -168,7 +168,7 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     func createURLRequest() -> URLRequest? {
         var components = URLComponents()
         components.scheme = "https"
-        components.host = SpotifyApiHost
+        components.host = Constants.Spotify.SpotifyApiHost
         //search would be query variable
         components.path = "/v1/search"
         components.queryItems = [

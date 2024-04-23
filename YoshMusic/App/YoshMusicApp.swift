@@ -12,6 +12,7 @@ struct YoshMusicApp: App {
     var body: some Scene {
         WindowGroup {
             LandingView()
+                .environmentObject(SpotifyManager.shared)
         }
     }
 }

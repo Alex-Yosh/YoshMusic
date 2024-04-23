@@ -10,7 +10,7 @@
 		FA73B0362BBCB305008E692A /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */; };
 		FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B03B2BBCF512008E692A /* SpotifyManager.swift */; };
 		FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B03D2BBD0DDE008E692A /* LandingView.swift */; };
-		FAA3832E2BBCA243001F93A7 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */; };
+		FAA3832E2BBCA243001F93A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3832D2BBCA243001F93A7 /* Constants.swift */; };
 		FAC125322BB5D91300323685 /* YoshMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125312BB5D91300323685 /* YoshMusicApp.swift */; };
 		FAC125342BB5D91300323685 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125332BB5D91300323685 /* MainScreen.swift */; };
 		FAC125362BB5D91500323685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC125352BB5D91500323685 /* Assets.xcassets */; };
@@ -22,15 +22,15 @@
 		FA73B03B2BBCF512008E692A /* SpotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
 		FA73B03D2BBD0DDE008E692A /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		FAA3832C2BBCA082001F93A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
+		FAA3832D2BBCA243001F93A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YoshMusic-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
-		FAC1252E2BB5D91300323685 /* YoshMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = YoshMusic.app; path = "/Users/alex/YoshMusic/build/Debug-iphoneos/YoshMusic.app"; sourceTree = "<absolute>"; };
 		FAC125312BB5D91300323685 /* YoshMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoshMusicApp.swift; sourceTree = "<group>"; };
 		FAC125332BB5D91300323685 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		FAC125352BB5D91500323685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC125382BB5D91500323685 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAC125432BB5E41100323685 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		FAFE44BD2BD72DF6005EB078 /* YoshMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoshMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 		FA73B0382BBCB3E0008E692A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */,
+				FAA3832D2BBCA243001F93A7 /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -90,6 +90,7 @@
 			children = (
 				FAC125302BB5D91300323685 /* YoshMusic */,
 				FAA3833A2BBCADB0001F93A7 /* Frameworks */,
+				FAFE44BD2BD72DF6005EB078 /* YoshMusic.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,7 +152,7 @@
 			);
 			name = YoshMusic;
 			productName = YoshMusic;
-			productReference = FAC1252E2BB5D91300323685 /* YoshMusic.app */;
+			productReference = FAFE44BD2BD72DF6005EB078 /* YoshMusic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA3832E2BBCA243001F93A7 /* SpotifyConstants.swift in Sources */,
+				FAA3832E2BBCA243001F93A7 /* Constants.swift in Sources */,
 				FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */,
 				FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */,
 				FAC125342BB5D91300323685 /* MainScreen.swift in Sources */,
