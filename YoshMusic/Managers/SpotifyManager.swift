@@ -60,7 +60,7 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     
     override init() {
         //for testing
-        UserDefaults.standard.removeObject(forKey: Constants.Spotify.SpotifyAccessTokenKey)
+//        UserDefaults.standard.removeObject(forKey: Constants.Spotify.SpotifyAccessTokenKey)
         
         let accessToken = UserDefaults.standard.string(forKey: Constants.Spotify.SpotifyAccessTokenKey)
         _isSignedIn = Published(initialValue: accessToken != nil)
@@ -204,12 +204,10 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
         
         var urlRequest = URLRequest(url: url)
         
-        if accessToken == nil{
-            return nil
-        }else{
-            urlRequest.addValue("Bearer " + accessToken!, forHTTPHeaderField: "Authorization")
-            urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        }
+        guard let at = accessToken else {return nil}
+        
+//        urlRequest.addValue("Bearer " + at, forHTTPHeaderField: "Authorization")
+//        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         urlRequest.httpMethod = "GET"
         
