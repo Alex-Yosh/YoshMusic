@@ -26,6 +26,7 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
             UserDefaults.standard.set(accessToken, forKey: Constants.Spotify.SpotifyAccessTokenKey)
         }
     }
+    private var timer: Timer?
     
     
     private var connectCancellable: AnyCancellable?
@@ -59,7 +60,7 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     
     override init() {
         //for testing
-//        UserDefaults.standard.removeObject(forKey: SpotifyAccessTokenKey)
+        UserDefaults.standard.removeObject(forKey: Constants.Spotify.SpotifyAccessTokenKey)
         
         let accessToken = UserDefaults.standard.string(forKey: Constants.Spotify.SpotifyAccessTokenKey)
         _isSignedIn = Published(initialValue: accessToken != nil)
@@ -130,8 +131,26 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
         if let accessToken = parameters?[SPTAppRemoteAccessTokenKey] {
             appRemote.connectionParameters.accessToken = accessToken
             self.accessToken = accessToken
+            startAccessTokenExpireTimer()
         } else if let errorDescription = parameters?[SPTAppRemoteErrorDescriptionKey] {
             print(errorDescription)
+        }
+    }
+    
+    func startAccessTokenExpireTimer()
+    {
+        // start timer for access token
+        var remainingSeconds = Constants.Spotify.spotifyAccessTokenKeyExpireTimeInSeconds //token expires every hour
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
+            guard let self = self else { return }
+            
+            remainingSeconds -= 1
+            if remainingSeconds <= 0 {
+                self.timer?.invalidate()
+                UserDefaults.standard.removeObject(forKey: Constants.Spotify.SpotifyAccessTokenKey)
+                accessToken = nil
+                disconnect()
+            }
         }
     }
     
@@ -192,4 +211,30 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
         return urlRequest
     }
     
+    func search() async throws -> [String]{
+        guard let urlRequest = createURLRequest() else {throw Constants.NetworkError.invalidURL}
+        
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        
+        let decoder = JSONDecoder()
+        let results = try decoder.decode(Response.self, from: data)
+        
+        let items = results.tracks.items
+        print(items)
+        
+        return []
+    }
+    
+}
+
+struct Response: Codable {
+    let tracks: Track
+}
+
+struct Track: Codable{
+    let items: [Item]
+}
+
+struct Item: Codable {
+    let name: String
 }

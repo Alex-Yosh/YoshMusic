@@ -17,6 +17,11 @@ struct MainScreen: View {
             
         }
         .padding()
+        .onAppear{
+            Task{
+                try await SpotifyManager.shared.search()
+            }
+        }
     }
 }
 

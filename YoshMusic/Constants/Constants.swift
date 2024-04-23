@@ -9,11 +9,19 @@ import Foundation
 
 struct Constants{
     
+    enum NetworkError: Error {
+        case unexpected
+        case invalidURL
+        case apiError
+    }
+    
     struct Spotify {
         static let SpotifyAccessTokenKey = "access-token-key"
         static let SpotifyRedirectURI = URL(string:"YoshMusic://")!
         static let SpotifyClientId = "a6750123c911486a823017f47402e1ad"
         static let SpotifyClientSecretKey = "12b3ba5c9fe94c1ab2abbad676782d5b"
+        
+        static let spotifyAccessTokenKeyExpireTimeInSeconds = 3600
 
         static let SpotifyApiHost = "api.spotify.com"
 
