@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct MainScreen: View {
+    @EnvironmentObject var spotifyManager : SpotifyManager
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Button(action:{
+                    Task{
+                        try await SpotifyManager.shared.search()
+                    }
+            }){
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+            }
+            
+            if let at = spotifyManager.accessToken {
+                Text(at)
+            }
             
         }
         .padding()
-        .onAppear{
-            Task{
-                try await SpotifyManager.shared.search()
-            }
-        }
     }
 }
 

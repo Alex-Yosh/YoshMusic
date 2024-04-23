@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct LoadingScreen: View {
+    @EnvironmentObject var spotifyManager: SpotifyManager
     var body: some View {
-        Text("Loading")
+        Button(action: {spotifyManager.connect()}){
+            
+            Text("Loading")
+        }
     }
 }
 

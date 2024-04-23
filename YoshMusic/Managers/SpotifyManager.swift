@@ -20,7 +20,7 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     @Published var isSignedIn: Bool
     var playURI = ""
     
-    @AppStorage(Constants.Spotify.SpotifyAccessTokenKey) private var accessToken: String? {
+    @AppStorage(Constants.Spotify.SpotifyAccessTokenKey) var accessToken: String? {
         didSet{
             isSignedIn = accessToken != nil
             UserDefaults.standard.set(accessToken, forKey: Constants.Spotify.SpotifyAccessTokenKey)
@@ -65,23 +65,23 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
         let accessToken = UserDefaults.standard.string(forKey: Constants.Spotify.SpotifyAccessTokenKey)
         _isSignedIn = Published(initialValue: accessToken != nil)
         super.init()
-        connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
-            .receive(on: DispatchQueue.main)
-            .sink { _ in
-                    self.connect()
-            }
-        
-        disconnectCancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
-            .receive(on: DispatchQueue.main)
-            .sink { _ in
-                self.disconnect()
-            }
-        
     }
     
     func connect() {
         guard let _ = self.appRemote.connectionParameters.accessToken else {
             self.appRemote.authorizeAndPlayURI("")
+            
+            connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+                .receive(on: DispatchQueue.main)
+                .sink { _ in
+                        self.connect()
+                }
+            
+            disconnectCancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+                .receive(on: DispatchQueue.main)
+                .sink { _ in
+                    self.disconnect()
+                }
             return
         }
         
@@ -91,6 +91,9 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     func disconnect() {
         if appRemote.isConnected {
             appRemote.disconnect()
+        }else{
+            connectCancellable = nil
+            disconnectCancellable = nil
         }
     }
     
@@ -146,9 +149,11 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
             
             remainingSeconds -= 1
             if remainingSeconds <= 0 {
+                //token expired, wipe so that you can login again
                 self.timer?.invalidate()
                 UserDefaults.standard.removeObject(forKey: Constants.Spotify.SpotifyAccessTokenKey)
                 accessToken = nil
+                appRemote.connectionParameters.accessToken = nil
                 disconnect()
             }
         }

@@ -18,10 +18,6 @@ struct LandingView: View {
                 .onOpenURL { url in
                     spotifyManager.storeAccessToken(from: url)
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didFinishLaunchingNotification), perform: { _ in
-                    spotifyManager.connect()
-                    
-                })
         }
     }
 }
