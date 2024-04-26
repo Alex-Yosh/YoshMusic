@@ -41,6 +41,7 @@
 		FAF00F8B2BDB16D3009674E8 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
 		FAF00F8D2BDB17D6009674E8 /* YoshMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoshMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF00F8E2BDB23BD009674E8 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		FAF00F902BDB33A0009674E8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +179,7 @@
 				FA73B0382BBCB3E0008E692A /* Constants */,
 				FAC125372BB5D91500323685 /* Preview Content */,
 				FAF00F8B2BDB16D3009674E8 /* FontStyle.swift */,
+				FAF00F902BDB33A0009674E8 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
