@@ -20,12 +20,13 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     @Published var isSignedIn: Bool
     var playURI = ""
     
-    @AppStorage(SpotifyAccessTokenKey) private var accessToken: String? {
+    @AppStorage(Constants.Spotify.SpotifyAccessTokenKey) var accessToken: String? {
         didSet{
             isSignedIn = accessToken != nil
-            UserDefaults.standard.set(accessToken, forKey: SpotifyAccessTokenKey)
+            UserDefaults.standard.set(accessToken, forKey: Constants.Spotify.SpotifyAccessTokenKey)
         }
     }
+    private var timer: Timer?
     
     
     private var connectCancellable: AnyCancellable?
@@ -34,7 +35,7 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     
     
     lazy var configuration: SPTConfiguration = {
-        let configuration = SPTConfiguration(clientID: SpotifyClientId, redirectURL: SpotifyRedirectURI)
+        let configuration = SPTConfiguration(clientID: Constants.Spotify.SpotifyClientId, redirectURL: Constants.Spotify.SpotifyRedirectURI)
         // Set the playURI to a non-nil value so that Spotify plays music after authenticating and App Remote can connect
         // otherwise another app switch will be required
         configuration.playURI = ""
@@ -59,29 +60,28 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     
     override init() {
         //for testing
-//        UserDefaults.standard.removeObject(forKey: SpotifyAccessTokenKey)
+        //        UserDefaults.standard.removeObject(forKey: Constants.Spotify.SpotifyAccessTokenKey)
         
-        let accessToken = UserDefaults.standard.string(forKey: SpotifyAccessTokenKey)
-        print(accessToken != nil)
+        let accessToken = UserDefaults.standard.string(forKey: Constants.Spotify.SpotifyAccessTokenKey)
         _isSignedIn = Published(initialValue: accessToken != nil)
         super.init()
-        connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
-            .receive(on: DispatchQueue.main)
-            .sink { _ in
-                    self.connect()
-            }
-        
-        disconnectCancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
-            .receive(on: DispatchQueue.main)
-            .sink { _ in
-                self.disconnect()
-            }
-        
     }
     
     func connect() {
         guard let _ = self.appRemote.connectionParameters.accessToken else {
             self.appRemote.authorizeAndPlayURI("")
+            
+            connectCancellable = NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)
+                .receive(on: DispatchQueue.main)
+                .sink { _ in
+                    self.connect()
+                }
+            
+            disconnectCancellable = NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)
+                .receive(on: DispatchQueue.main)
+                .sink { _ in
+                    self.disconnect()
+                }
             return
         }
         
@@ -91,6 +91,9 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     func disconnect() {
         if appRemote.isConnected {
             appRemote.disconnect()
+        }else{
+            connectCancellable = nil
+            disconnectCancellable = nil
         }
     }
     
@@ -136,6 +139,13 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
         }
     }
     
+    func resetAccessToken(){
+        UserDefaults.standard.removeObject(forKey: Constants.Spotify.SpotifyAccessTokenKey)
+        accessToken = nil
+        appRemote.connectionParameters.accessToken = nil
+        disconnect()
+    }
+    
     // MARK: - SPTAppRemoteDelegate
     
     func appRemoteDidEstablishConnection(_ appRemote: SPTAppRemote) {
@@ -163,4 +173,78 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
         update(playerState: playerState)
     }
     
+    // MARK: WEB API
+    
+    //Public Functions
+    
+    func searchArtist(searchQuery: String) async -> ArtistList?{
+        do{
+            let artistsList = try await attemptToSearchArtist(searchQuery: searchQuery)
+            
+            if let k = artistsList{
+                for i in k.items{
+                    print(i.name)
+                }
+            }
+            return artistsList
+        } catch Constants.APIError.accessTokenExpired{
+            resetAccessToken()
+            return nil
+        } catch{
+            return nil
+        }
+    }
+    
+    //Helper functions
+    
+    private func attemptToSearchArtist(searchQuery: String) async throws -> ArtistList?{
+        guard let urlRequest = createURLRequest(queryType: .artist, searchQuery: searchQuery) else {throw Constants.APIError.invalidURL}
+    
+        let decoder = JSONDecoder()
+        
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        do {
+            let results = try decoder.decode(ArtistResponse.self, from: data)
+            return results.artists
+        } catch {
+            let results = try decoder.decode(ErrorResponse.self, from: data)
+            switch results.error.message{
+            case "The access token expired":
+                print(results.error.message)
+                throw Constants.APIError.accessTokenExpired
+                
+            default:
+                throw Constants.APIError.unknown
+                
+            }
+        }
+    }
+    
+    private func createURLRequest(queryType: Constants.SearchQueryType, searchQuery: String) -> URLRequest? {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = Constants.Spotify.SpotifyApiHost
+        //search would be query variable
+        components.path = "/v1/search"
+        components.queryItems = [
+            URLQueryItem(name: "type", value: queryType.rawValue),
+            URLQueryItem(name: "q", value: searchQuery)
+        ]
+        
+        guard let url = components.url else {return nil}
+        
+        var urlRequest = URLRequest(url: url)
+        
+        guard let at = accessToken else {return nil}
+        
+        urlRequest.addValue("Bearer " + at, forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        urlRequest.httpMethod = "GET"
+        
+        return urlRequest
+    }
 }
+
+
+

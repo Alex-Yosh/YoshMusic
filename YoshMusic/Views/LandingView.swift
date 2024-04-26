@@ -12,16 +12,12 @@ struct LandingView: View {
     
     var body: some View {
         if spotifyManager.isSignedIn {
-            MainScreen()
+            HomeScreen()
         }else{
             LoadingScreen()
                 .onOpenURL { url in
                     spotifyManager.storeAccessToken(from: url)
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didFinishLaunchingNotification), perform: { _ in
-                    spotifyManager.connect()
-                    
-                })
         }
     }
 }

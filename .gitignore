@@ -9,6 +9,9 @@ xcuserdata/
 *.xcscmblueprint
 *.xccheckout
 
+## secret API keys
+*.xcprivacy
+
 ## compatibility with Xcode 3 and earlier (ignoring not required starting Xcode 4)
 build/
 DerivedData/

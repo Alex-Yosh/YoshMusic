@@ -10,27 +10,37 @@
 		FA73B0362BBCB305008E692A /* SpotifyiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */; };
 		FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B03B2BBCF512008E692A /* SpotifyManager.swift */; };
 		FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA73B03D2BBD0DDE008E692A /* LandingView.swift */; };
-		FAA3832E2BBCA243001F93A7 /* SpotifyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */; };
+		FAA3832E2BBCA243001F93A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA3832D2BBCA243001F93A7 /* Constants.swift */; };
 		FAC125322BB5D91300323685 /* YoshMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125312BB5D91300323685 /* YoshMusicApp.swift */; };
-		FAC125342BB5D91300323685 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125332BB5D91300323685 /* MainScreen.swift */; };
+		FAC125342BB5D91300323685 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125332BB5D91300323685 /* HomeScreen.swift */; };
 		FAC125362BB5D91500323685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC125352BB5D91500323685 /* Assets.xcassets */; };
 		FAC125392BB5D91500323685 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC125382BB5D91500323685 /* Preview Assets.xcassets */; };
 		FAC125442BB5E41100323685 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC125432BB5E41100323685 /* LoadingScreen.swift */; };
+		FAF00F822BDB076C009674E8 /* ArtistResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00F812BDB076C009674E8 /* ArtistResponse.swift */; };
+		FAF00F852BDB0D09009674E8 /* TopKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00F842BDB0D09009674E8 /* TopKeyboard.swift */; };
+		FAF00F872BDB0F44009674E8 /* ColourConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00F862BDB0F44009674E8 /* ColourConstants.swift */; };
+		FAF00F8C2BDB16D3009674E8 /* FontStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00F8B2BDB16D3009674E8 /* FontStyle.swift */; };
+		FAF00F8F2BDB23BD009674E8 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00F8E2BDB23BD009674E8 /* ErrorResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA73B03B2BBCF512008E692A /* SpotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
 		FA73B03D2BBD0DDE008E692A /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
-		FAA3832C2BBCA082001F93A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyConstants.swift; sourceTree = "<group>"; };
+		FAA3832D2BBCA243001F93A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YoshMusic-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
-		FAC1252E2BB5D91300323685 /* YoshMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = YoshMusic.app; path = "/Users/alex/YoshMusic/build/Debug-iphoneos/YoshMusic.app"; sourceTree = "<absolute>"; };
 		FAC125312BB5D91300323685 /* YoshMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoshMusicApp.swift; sourceTree = "<group>"; };
-		FAC125332BB5D91300323685 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		FAC125332BB5D91300323685 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		FAC125352BB5D91500323685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC125382BB5D91500323685 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FAC125432BB5E41100323685 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		FAF00F812BDB076C009674E8 /* ArtistResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistResponse.swift; sourceTree = "<group>"; };
+		FAF00F842BDB0D09009674E8 /* TopKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopKeyboard.swift; sourceTree = "<group>"; };
+		FAF00F862BDB0F44009674E8 /* ColourConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourConstants.swift; sourceTree = "<group>"; };
+		FAF00F8B2BDB16D3009674E8 /* FontStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyle.swift; sourceTree = "<group>"; };
+		FAF00F8D2BDB17D6009674E8 /* YoshMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoshMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAF00F8E2BDB23BD009674E8 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		FAF00F902BDB33A0009674E8 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +58,8 @@
 		FA73B0382BBCB3E0008E692A /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				FAA3832D2BBCA243001F93A7 /* SpotifyConstants.swift */,
+				FAA3832D2BBCA243001F93A7 /* Constants.swift */,
+				FAF00F862BDB0F44009674E8 /* ColourConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -64,17 +75,18 @@
 		FA73B0402BBD0EE2008E692A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA73B03D2BBD0DDE008E692A /* LandingView.swift */,
 				FAC125402BB5DCC100323685 /* Screens */,
-				FA73B0412BBD0EF5008E692A /* Sub Views */,
+				FA73B0412BBD0EF5008E692A /* Shared Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FA73B0412BBD0EF5008E692A /* Sub Views */ = {
+		FA73B0412BBD0EF5008E692A /* Shared Views */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "Sub Views";
+			path = "Shared Views";
 			sourceTree = "<group>";
 		};
 		FAA3833A2BBCADB0001F93A7 /* Frameworks */ = {
@@ -90,6 +102,7 @@
 			children = (
 				FAC125302BB5D91300323685 /* YoshMusic */,
 				FAA3833A2BBCADB0001F93A7 /* Frameworks */,
+				FAF00F8D2BDB17D6009674E8 /* YoshMusic.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,11 +112,8 @@
 				FAC1253F2BB5DA8400323685 /* App */,
 				FA73B03F2BBD0EC3008E692A /* Managers */,
 				FA73B0402BBD0EE2008E692A /* Views */,
-				FAC125372BB5D91500323685 /* Preview Content */,
-				FA73B0382BBCB3E0008E692A /* Constants */,
-				FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */,
-				FAA3832C2BBCA082001F93A7 /* Info.plist */,
-				FAC125352BB5D91500323685 /* Assets.xcassets */,
+				FAF00F7F2BDB0507009674E8 /* Models */,
+				FAF00F8A2BDB1680009674E8 /* Utils */,
 			);
 			path = YoshMusic;
 			sourceTree = "<group>";
@@ -120,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				FAC125312BB5D91300323685 /* YoshMusicApp.swift */,
-				FA73B03D2BBD0DDE008E692A /* LandingView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -128,10 +137,57 @@
 		FAC125402BB5DCC100323685 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				FAC125332BB5D91300323685 /* MainScreen.swift */,
+				FAF00F832BDB0CE5009674E8 /* Home */,
 				FAC125432BB5E41100323685 /* LoadingScreen.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		FAF00F7F2BDB0507009674E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FAF00F802BDB0741009674E8 /* SpotifyModels */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FAF00F802BDB0741009674E8 /* SpotifyModels */ = {
+			isa = PBXGroup;
+			children = (
+				FAF00F812BDB076C009674E8 /* ArtistResponse.swift */,
+				FAF00F8E2BDB23BD009674E8 /* ErrorResponse.swift */,
+			);
+			path = SpotifyModels;
+			sourceTree = "<group>";
+		};
+		FAF00F832BDB0CE5009674E8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FAC125332BB5D91300323685 /* HomeScreen.swift */,
+				FAF00F922BDB38D3009674E8 /* Sub Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FAF00F8A2BDB1680009674E8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */,
+				FAC125352BB5D91500323685 /* Assets.xcassets */,
+				FA73B0382BBCB3E0008E692A /* Constants */,
+				FAC125372BB5D91500323685 /* Preview Content */,
+				FAF00F8B2BDB16D3009674E8 /* FontStyle.swift */,
+				FAF00F902BDB33A0009674E8 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FAF00F922BDB38D3009674E8 /* Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+				FAF00F842BDB0D09009674E8 /* TopKeyboard.swift */,
+			);
+			path = "Sub Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +207,7 @@
 			);
 			name = YoshMusic;
 			productName = YoshMusic;
-			productReference = FAC1252E2BB5D91300323685 /* YoshMusic.app */;
+			productReference = FAF00F8D2BDB17D6009674E8 /* YoshMusic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,11 +261,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA3832E2BBCA243001F93A7 /* SpotifyConstants.swift in Sources */,
+				FAF00F852BDB0D09009674E8 /* TopKeyboard.swift in Sources */,
+				FAA3832E2BBCA243001F93A7 /* Constants.swift in Sources */,
 				FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */,
+				FAF00F8F2BDB23BD009674E8 /* ErrorResponse.swift in Sources */,
+				FAF00F822BDB076C009674E8 /* ArtistResponse.swift in Sources */,
+				FAF00F8C2BDB16D3009674E8 /* FontStyle.swift in Sources */,
 				FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */,
-				FAC125342BB5D91300323685 /* MainScreen.swift in Sources */,
+				FAC125342BB5D91300323685 /* HomeScreen.swift in Sources */,
 				FAC125322BB5D91300323685 /* YoshMusicApp.swift in Sources */,
+				FAF00F872BDB0F44009674E8 /* ColourConstants.swift in Sources */,
 				FAC125442BB5E41100323685 /* LoadingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,7 +405,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"YoshMusic/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"YoshMusic/Utils/Preview Content\"";
 				DEVELOPMENT_TEAM = YV26NS784Z;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -353,7 +414,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YoshMusic/Info.plist;
+				INFOPLIST_FILE = YoshMusic/Utils/PrivacyInfo.xcprivacy;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -367,7 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Yosh.YoshMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "YoshMusic/YoshMusic-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "YoshMusic/Utils/YoshMusic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -382,7 +443,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"YoshMusic/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"YoshMusic/Utils/Preview Content\"";
 				DEVELOPMENT_TEAM = YV26NS784Z;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -391,7 +452,7 @@
 					"$(PROJECT_DIR)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = YoshMusic/Info.plist;
+				INFOPLIST_FILE = YoshMusic/Utils/PrivacyInfo.xcprivacy;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -405,7 +466,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Yosh.YoshMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "YoshMusic/YoshMusic-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "YoshMusic/Utils/YoshMusic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
