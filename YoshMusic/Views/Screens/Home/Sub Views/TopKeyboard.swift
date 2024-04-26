@@ -20,9 +20,8 @@ struct TopKeyboard: View {
                     .foregroundColor(.white)
                 Button(action: {
                     
-                    print(inputText)
                     Task{
-                        try await SpotifyManager.shared.searchArtist(searchQuery: inputText)
+                        await SpotifyManager.shared.searchArtist(searchQuery: inputText)
                     }
                 }){
                     ZStack{

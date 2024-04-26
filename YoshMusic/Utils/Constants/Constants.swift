@@ -29,8 +29,8 @@ struct Constants{
     struct Spotify {
         static let SpotifyAccessTokenKey = "access-token-key"
         static let SpotifyRedirectURI = URL(string:"YoshMusic://")!
-        static let SpotifyClientId = "a6750123c911486a823017f47402e1ad"
-        static let SpotifyClientSecretKey = "12b3ba5c9fe94c1ab2abbad676782d5b"
+        static let SpotifyClientId = Bundle.main.object(forInfoDictionaryKey: "Spotify Client ID") as! String
+        static let SpotifyClientSecretKey = Bundle.main.object(forInfoDictionaryKey: "Spotify Client Secret Key") as! String
         
         static let spotifyAccessTokenKeyExpireTimeInSeconds = 3600
 
