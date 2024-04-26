@@ -26,7 +26,6 @@
 /* Begin PBXFileReference section */
 		FA73B03B2BBCF512008E692A /* SpotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyManager.swift; sourceTree = "<group>"; };
 		FA73B03D2BBD0DDE008E692A /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
-		FAA3832C2BBCA082001F93A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA3832D2BBCA243001F93A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YoshMusic-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAA383382BBCAD5E001F93A7 /* SpotifyiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyiOS.framework; sourceTree = "<group>"; };
@@ -174,7 +173,6 @@
 			isa = PBXGroup;
 			children = (
 				FAA383332BBCA960001F93A7 /* YoshMusic-Bridging-Header.h */,
-				FAA3832C2BBCA082001F93A7 /* Info.plist */,
 				FAC125352BB5D91500323685 /* Assets.xcassets */,
 				FA73B0382BBCB3E0008E692A /* Constants */,
 				FAC125372BB5D91500323685 /* Preview Content */,
