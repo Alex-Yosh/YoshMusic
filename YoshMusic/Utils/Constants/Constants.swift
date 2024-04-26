@@ -9,10 +9,21 @@ import Foundation
 
 struct Constants{
     
-    enum NetworkError: Error {
-        case unexpected
+    enum APIError: Error {
+        case timeOut
         case invalidURL
-        case apiError
+        case accessTokenExpired
+        case unknown
+    }
+    
+    enum SearchQueryType: String{
+        case album = "album"
+        case artist = "artist"
+        case playlist = "playlist"
+        case track = "track"
+        case show = "show"
+        case episode = "episode"
+        case audiobook = "audiobook"
     }
     
     struct Spotify {

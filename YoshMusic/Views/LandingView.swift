@@ -12,7 +12,7 @@ struct LandingView: View {
     
     var body: some View {
         if spotifyManager.isSignedIn {
-            MainScreen()
+            HomeScreen()
         }else{
             LoadingScreen()
                 .onOpenURL { url in
