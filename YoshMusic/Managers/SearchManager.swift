@@ -26,4 +26,8 @@ final class SearchManager: ObservableObject{
         return artistlist
     }
     
+    func searchForArtist() async -> ArtistResponse?{
+        return await SpotifyManager.shared.SpotifyAPICall(calltype: .search, queryType: .artist, searchQuery: searchInputHome) as? ArtistResponse
+    }
+    
 }
