@@ -20,7 +20,13 @@ struct Constants{
         case unknown
     }
     
-    enum SearchQueryType: String{
+    
+    enum APICallType: String{
+        case search = "/v1/search"
+        case user = "/v1/me"
+    }
+    
+    enum QueryType: String{
         case album = "album"
         case artist = "artist"
         case playlist = "playlist"

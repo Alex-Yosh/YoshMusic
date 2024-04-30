@@ -177,29 +177,113 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     
     //Public Functions
     
-    func searchArtist(searchQuery: String) async -> ArtistList?{
+    func SpotifyAPICall(calltype: Constants.APICallType, queryType: Constants.QueryType? = nil, searchQuery: String? = nil) async -> Response?{
         do{
-            let artistsList = try await attemptToSearchArtist(searchQuery: searchQuery)
-            return artistsList
+            switch(calltype){
+            case .search:
+                if let qt = queryType, let sq = searchQuery{
+                    return try await search(queryType: qt, searchQuery: sq)
+                }else{
+                    print("need querytype and searchquery if you want to perform a search")
+                    return nil
+                }
+                
+            case .user:
+                return try await userDetails()
+                
+            default:
+                return nil
+            }
         } catch Constants.APIError.accessTokenExpired{
             resetAccessToken()
+            return nil
+        } catch Constants.APIError.invalidURL{
+            //            print("invalid url")
+            return nil
+        } catch Constants.APIError.unknown{
+            //            print("unknown")
             return nil
         } catch{
             return nil
         }
     }
     
-    //Helper functions
+    //private helper functions
     
-    private func attemptToSearchArtist(searchQuery: String) async throws -> ArtistList?{
-        guard let urlRequest = createURLRequest(queryType: .artist, searchQuery: searchQuery) else {throw Constants.APIError.invalidURL}
+    private func search(queryType: Constants.QueryType, searchQuery: String) async throws -> Response{
+        
+        guard let urlRequest = createURLRequest(callType: .search, queryType: queryType, searchQuery: searchQuery) else {throw Constants.APIError.invalidURL}
+        
+        return try await decodeAs(urlRequest: urlRequest, apiType: .search, searchQueryType: queryType)
+    }
     
+    private func userDetails() async throws -> Response{
+        
+        guard let urlRequest = createURLRequest(callType: .user) else {throw Constants.APIError.invalidURL}
+        
+        return try await decodeAs(urlRequest: urlRequest, apiType: .user)
+    }
+    
+    private func createURLRequest(callType: Constants.APICallType, queryType: Constants.QueryType? = nil, searchQuery: String? = nil) -> URLRequest? {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = Constants.Spotify.SpotifyApiHost
+        
+        //path based on calltype
+        components.path = callType.rawValue
+        
+        //add params
+        switch(callType){
+        case .search:
+            components.queryItems = [
+                URLQueryItem(name: "type", value: queryType!.rawValue),
+                URLQueryItem(name: "q", value: searchQuery)
+            ]
+            
+        default:
+            break
+            
+        }
+        
+        guard let url = components.url else {return nil}
+        
+        var urlRequest = URLRequest(url: url)
+        
+        guard let at = accessToken else {return nil}
+        
+        //add headers
+        urlRequest.addValue("Bearer " + at, forHTTPHeaderField: "Authorization")
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        urlRequest.httpMethod = "GET"
+        
+        return urlRequest
+    }
+    
+    private func decodeAs(urlRequest: URLRequest, apiType: Constants.APICallType, searchQueryType: Constants.QueryType? = nil) async throws -> Response{
         let decoder = JSONDecoder()
         
         let (data, _) = try await URLSession.shared.data(for: urlRequest)
         do {
-            let results = try decoder.decode(ArtistResponse.self, from: data)
-            return results.artists
+            switch(apiType){
+            case .user:
+                return try decoder.decode(UserResponse.self, from: data)
+            case .search:
+                if let qt = searchQueryType{
+                    switch(qt){
+                    case .artist:
+                        return try decoder.decode(ArtistResponse.self, from: data)
+                        
+                    default:
+                        throw Constants.APIError.unknown
+                    }
+                }
+                else{
+                    throw Constants.APIError.unknown
+                }
+                
+            }
+            
         } catch {
             let results = try decoder.decode(ErrorResponse.self, from: data)
             switch results.error.message{
@@ -212,31 +296,6 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
                 
             }
         }
-    }
-    
-    private func createURLRequest(queryType: Constants.SearchQueryType, searchQuery: String) -> URLRequest? {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = Constants.Spotify.SpotifyApiHost
-        //search would be query variable
-        components.path = "/v1/search"
-        components.queryItems = [
-            URLQueryItem(name: "type", value: queryType.rawValue),
-            URLQueryItem(name: "q", value: searchQuery)
-        ]
-        
-        guard let url = components.url else {return nil}
-        
-        var urlRequest = URLRequest(url: url)
-        
-        guard let at = accessToken else {return nil}
-        
-        urlRequest.addValue("Bearer " + at, forHTTPHeaderField: "Authorization")
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        urlRequest.httpMethod = "GET"
-        
-        return urlRequest
     }
 }
 

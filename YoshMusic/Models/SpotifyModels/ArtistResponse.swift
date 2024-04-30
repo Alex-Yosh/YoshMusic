@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArtistResponse: Codable {
+class ArtistResponse: SearchResponse, Codable {
     let artists: ArtistList
 }
 

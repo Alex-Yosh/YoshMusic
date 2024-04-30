@@ -22,7 +22,7 @@ struct TopKeyboard: View {
                         .focused($isFocused)
                         .onChange(of: searchManager.searchInputHome){
                             Task {
-                                searchManager.artistList = await spotifyManager.searchArtist(searchQuery: searchManager.searchInputHome)
+                                searchManager.artistList = await searchManager.searchForArtist()?.artists
                             }
                         }
                         .foregroundColor(.white)

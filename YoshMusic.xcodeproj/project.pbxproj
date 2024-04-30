@@ -26,6 +26,8 @@
 		FAF00F9F2BE03E11009674E8 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00F9E2BE03E11009674E8 /* NavigationManager.swift */; };
 		FAF00FA12BE05A28009674E8 /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00FA02BE05A28009674E8 /* ImageStyle.swift */; };
 		FAF00FA32BE06FE6009674E8 /* ArtistScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00FA22BE06FE6009674E8 /* ArtistScreen.swift */; };
+		FAF00FA62BE17297009674E8 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00FA52BE17297009674E8 /* UserResponse.swift */; };
+		FAF00FA82BE173CF009674E8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00FA72BE173CF009674E8 /* Response.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		FAF00F9E2BE03E11009674E8 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		FAF00FA02BE05A28009674E8 /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
 		FAF00FA22BE06FE6009674E8 /* ArtistScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistScreen.swift; sourceTree = "<group>"; };
+		FAF00FA52BE17297009674E8 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		FAF00FA72BE173CF009674E8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,8 +171,10 @@
 		FAF00F802BDB0741009674E8 /* SpotifyModels */ = {
 			isa = PBXGroup;
 			children = (
+				FAF00FA72BE173CF009674E8 /* Response.swift */,
 				FAF00F812BDB076C009674E8 /* ArtistResponse.swift */,
 				FAF00F8E2BDB23BD009674E8 /* ErrorResponse.swift */,
+				FAF00FA52BE17297009674E8 /* UserResponse.swift */,
 			);
 			path = SpotifyModels;
 			sourceTree = "<group>";
@@ -288,9 +294,11 @@
 				FAA3832E2BBCA243001F93A7 /* Constants.swift in Sources */,
 				FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */,
 				FAF00F992BE02D43009674E8 /* SearchManager.swift in Sources */,
+				FAF00FA82BE173CF009674E8 /* Response.swift in Sources */,
 				FAF00FA32BE06FE6009674E8 /* ArtistScreen.swift in Sources */,
 				FAF00F8F2BDB23BD009674E8 /* ErrorResponse.swift in Sources */,
 				FAF00F822BDB076C009674E8 /* ArtistResponse.swift in Sources */,
+				FAF00FA62BE17297009674E8 /* UserResponse.swift in Sources */,
 				FAF00FA12BE05A28009674E8 /* ImageStyle.swift in Sources */,
 				FAF00F8C2BDB16D3009674E8 /* FontStyle.swift in Sources */,
 				FA73B03E2BBD0DDE008E692A /* LandingView.swift in Sources */,
