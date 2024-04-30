@@ -20,3 +20,16 @@ struct DefaultText: ViewModifier {
             .foregroundColor(DefaultText.color)
     }
 }
+
+struct ArtistCardNameText: ViewModifier {
+    
+    static var fontSize = 16.0
+    static var color: Color = .black
+    
+    func body(content: Content) -> some View {
+        content
+            .font(Font.custom("Inter-Bold", size: ArtistCardNameText.fontSize))
+            .frame(alignment: .leading)
+            .foregroundColor(ArtistCardNameText.color)
+    }
+}

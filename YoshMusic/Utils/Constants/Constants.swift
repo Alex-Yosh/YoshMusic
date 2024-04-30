@@ -9,6 +9,10 @@ import Foundation
 
 struct Constants{
     
+    enum Destination: Codable, Hashable {
+        case artist
+    }
+    
     enum APIError: Error {
         case timeOut
         case invalidURL

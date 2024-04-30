@@ -11,7 +11,6 @@ struct LoadingScreen: View {
     @EnvironmentObject var spotifyManager: SpotifyManager
     var body: some View {
         Button(action: {spotifyManager.connect()}){
-            
             Text("Loading")
         }
     }

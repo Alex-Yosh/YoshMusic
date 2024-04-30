@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct LandingView: View {
-    @StateObject var spotifyManager: SpotifyManager = SpotifyManager.shared
+    
+    @EnvironmentObject var spotifyManager: SpotifyManager
+    @EnvironmentObject var navManager: NavigationManager
     
     var body: some View {
         if spotifyManager.isSignedIn {
-            HomeScreen()
+            NavigationStack(path: $navManager.navPath) {
+                HomeScreen()
+                .navigationDestination(for: Constants.Destination.self) { destination in
+                    switch destination {
+                    case .artist:
+                        ArtistScreen()
+                    }
+                }
+            }
         }else{
             LoadingScreen()
                 .onOpenURL { url in

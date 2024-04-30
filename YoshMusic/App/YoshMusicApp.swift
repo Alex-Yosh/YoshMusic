@@ -13,6 +13,8 @@ struct YoshMusicApp: App {
         WindowGroup {
             LandingView()
                 .environmentObject(SpotifyManager.shared)
+                .environmentObject(SearchManager.shared)
+                .environmentObject(NavigationManager.shared)
         }
     }
 }
