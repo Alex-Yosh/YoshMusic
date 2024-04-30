@@ -9,15 +9,18 @@ import SwiftUI
 
 struct HomeScreen: View {
     @EnvironmentObject var spotifyManager : SpotifyManager
+    
+    @FocusState var isFocused: Bool
+    
     var body: some View {
-        VStack {
-            TopKeyboard()
-            Spacer()
-            
+        ZStack{
             if let at = spotifyManager.accessToken {
                 Text(at)
             }
-            
+            VStack{
+                TopKeyboard()
+                Spacer()
+            }
         }
     }
 }

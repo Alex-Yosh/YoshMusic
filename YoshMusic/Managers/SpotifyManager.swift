@@ -180,12 +180,6 @@ final class SpotifyManager: NSObject, ObservableObject, SPTAppRemoteDelegate, SP
     func searchArtist(searchQuery: String) async -> ArtistList?{
         do{
             let artistsList = try await attemptToSearchArtist(searchQuery: searchQuery)
-            
-            if let k = artistsList{
-                for i in k.items{
-                    print(i.name)
-                }
-            }
             return artistsList
         } catch Constants.APIError.accessTokenExpired{
             resetAccessToken()
