@@ -19,7 +19,8 @@ final class SearchManager: ObservableObject{
         var artistlist: [ArtistItem] = []
         
         if let artistList = artistList{
-            artistlist = artistList.items.filter {$0.name.lowercased().contains(searchInputHome.lowercased())}
+            //filter by keyword search then sory by popularity
+            artistlist = artistList.items.filter {$0.name.lowercased().contains(searchInputHome.lowercased())}.sorted {$0.followers.total > $1.followers.total}
         }
         
         return artistlist

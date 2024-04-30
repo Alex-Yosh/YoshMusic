@@ -19,7 +19,7 @@ struct LandingView: View {
                 .navigationDestination(for: Constants.Destination.self) { destination in
                     switch destination {
                     case .artist:
-                        HomeScreen()
+                        ArtistScreen()
                     }
                 }
             }

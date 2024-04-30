@@ -25,6 +25,7 @@
 		FAF00F9B2BE034E9009674E8 /* ArtistsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00F9A2BE034E8009674E8 /* ArtistsCard.swift */; };
 		FAF00F9F2BE03E11009674E8 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00F9E2BE03E11009674E8 /* NavigationManager.swift */; };
 		FAF00FA12BE05A28009674E8 /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00FA02BE05A28009674E8 /* ImageStyle.swift */; };
+		FAF00FA32BE06FE6009674E8 /* ArtistScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF00FA22BE06FE6009674E8 /* ArtistScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		FAF00F9A2BE034E8009674E8 /* ArtistsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistsCard.swift; sourceTree = "<group>"; };
 		FAF00F9E2BE03E11009674E8 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		FAF00FA02BE05A28009674E8 /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
+		FAF00FA22BE06FE6009674E8 /* ArtistScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		FAC125402BB5DCC100323685 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				FAF00FA42BE06FF4009674E8 /* Artist */,
 				FAF00F832BDB0CE5009674E8 /* Home */,
 				FAC125432BB5E41100323685 /* LoadingScreen.swift */,
 			);
@@ -200,6 +203,14 @@
 				FAF00F9A2BE034E8009674E8 /* ArtistsCard.swift */,
 			);
 			path = "Sub Views";
+			sourceTree = "<group>";
+		};
+		FAF00FA42BE06FF4009674E8 /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				FAF00FA22BE06FE6009674E8 /* ArtistScreen.swift */,
+			);
+			path = Artist;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +288,7 @@
 				FAA3832E2BBCA243001F93A7 /* Constants.swift in Sources */,
 				FA73B03C2BBCF512008E692A /* SpotifyManager.swift in Sources */,
 				FAF00F992BE02D43009674E8 /* SearchManager.swift in Sources */,
+				FAF00FA32BE06FE6009674E8 /* ArtistScreen.swift in Sources */,
 				FAF00F8F2BDB23BD009674E8 /* ErrorResponse.swift in Sources */,
 				FAF00F822BDB076C009674E8 /* ArtistResponse.swift in Sources */,
 				FAF00FA12BE05A28009674E8 /* ImageStyle.swift in Sources */,
