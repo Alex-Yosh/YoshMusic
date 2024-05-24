@@ -15,6 +15,7 @@ struct YoshMusicApp: App {
                 .environmentObject(SpotifyManager.shared)
                 .environmentObject(SearchManager.shared)
                 .environmentObject(NavigationManager.shared)
+                .environmentObject(DatabaseManager.shared)
         }
     }
 }

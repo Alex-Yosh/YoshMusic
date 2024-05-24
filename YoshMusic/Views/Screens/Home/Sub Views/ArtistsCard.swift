@@ -10,6 +10,7 @@ import SwiftUI
 struct ArtistsCard: View {
     @EnvironmentObject var searchManager: SearchManager
     @EnvironmentObject var navManager: NavigationManager
+    @EnvironmentObject var dbManager: DatabaseManager
     
     var artist: ArtistItem
     
