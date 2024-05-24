@@ -27,6 +27,17 @@ extension DatabaseManager{
         }
     }
     
+    func deleteArtistData() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "ArtistEntity")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do{
+            try artistContainer.viewContext.execute(deleteRequest)
+        } catch let error{
+            print("Error deleting. \(error)")
+        }
+    }
+    
+    
     //private helpers
     
     func fetchArtists(){
